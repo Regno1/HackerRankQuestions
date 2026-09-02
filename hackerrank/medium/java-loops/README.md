@@ -1,4 +1,4 @@
-# Java Loops I
+# Java Loops II
 
 ![Difficulty](https://img.shields.io/badge/Difficulty-Medium-yellow)
 
@@ -30,33 +30,29 @@ For each query, print the corresponding series on a new line. Each series must b
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-02T14:31:11.524Z  
+**Submitted:** 2026-09-02T14:43:38.571Z  
 
 ```java
-import java.io.*;
-import java.math.*;
-import java.security.*;
-import java.text.*;
 import java.util.*;
-import java.util.concurrent.*;
-import java.util.function.*;
-import java.util.regex.*;
-import java.util.stream.*;
-import static java.util.stream.Collectors.joining;
-import static java.util.stream.Collectors.toList;
+import java.io.*;
 
-
-
-public class Solution {
-    public static void main(String[] args) throws IOException {
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-
-        int n = Integer.parseInt(bufferedReader.readLine().trim());
-         for(int i=1;i<=10;i++){
-        
-            System.out.println(n+ " x "+i+" = "+ n*i);
+class Solution{
+    public static void main(String []argh){
+        Scanner in = new Scanner(System.in);
+        int t=in.nextInt();
+        for(int i=0;i<t;i++){
+            int a = in.nextInt();
+            int b = in.nextInt();
+            int n = in.nextInt();
+         int sum=a;
+         for(int j=0;j<n;j++){
+            sum+=(int)Math.pow(2, j)*b;
+            System.out.print(sum +" ");
          }
-        bufferedReader.close();
+         System.out.println();
+        }
+        in.close();
+
     }
 }
 
