@@ -1,4 +1,4 @@
-# Java End-of-file
+# Java Static Initializer Block
 
 ![Difficulty](https://img.shields.io/badge/Difficulty-Medium-yellow)
 
@@ -53,7 +53,7 @@ If both values are greater than zero, then the *main* method must output the are
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-02T17:43:20.806Z  
+**Submitted:** 2026-09-02T17:55:08.466Z  
 
 ```java
 import java.io.*;
@@ -63,15 +63,24 @@ public class Solution {
 
     public static void main(String[] args) {
         /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
-        Scanner in= new Scanner(System.in);
-        int i=1;
-        while(in.hasNext()){
-            String a= in.nextLine();
-            System.out.println(i + " "+ a);
-            i++;
-        }
+        Scanner input = new Scanner(System.in);
+        int a=input.nextInt();
+        int b=input.nextInt();
+        try {
+    if(a <= 0 || b <= 0) {
+        throw new Exception("Breadth and height must be positive");
     }
+
+    int area = a * b;
+    System.out.println(area);
 }
+catch(Exception e) {
+    System.out.println(e);
+}
+        }
+        
+        }
+    
 
 ```
 
