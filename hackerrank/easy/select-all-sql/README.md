@@ -1,4 +1,4 @@
-# Revising the Select Query II
+# Select All
 
 ![Difficulty](https://img.shields.io/badge/Difficulty-Easy-green)
 
@@ -24,13 +24,17 @@ The **CITY** table is described as follows:
 **Language:** db2  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-02T06:08:34.015Z  
+**Submitted:** 2026-09-02T06:09:38.021Z  
 
 ```db2
-SELECT NAME
-FROM CITY
-WHERE COUNTRYCODE = 'USA'
-AND POPULATION > 120000;
+
+/*
+    Enter your query here and follow these instructions:
+    1. Please append a semicolon ";" at the end of the query and enter your query in a single line to avoid error.
+    2. The AS keyword causes errors, so follow this convention: "Select t.Field From table1 t" instead of "select t.Field From table1 AS t"
+    3. Type your code immediately after comment. Don't leave any blank line.
+*/
+SELECT * FROM CITY;
 
 ```
 
