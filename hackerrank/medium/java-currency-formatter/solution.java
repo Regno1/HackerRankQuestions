@@ -1,24 +1,31 @@
+import java.util.*;
+import java.text.*;
 
+public class Solution {
+    
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        double payment = scanner.nextDouble();
+        scanner.close();
+       
+       
+        // Write your code here.
+        
+  
+  NumberFormat us= NumberFormat.getCurrencyInstance(Locale.US);
+  NumberFormat india= NumberFormat.getCurrencyInstance(new Locale("en","IN"));
+  NumberFormat china= NumberFormat.getCurrencyInstance(Locale.CHINA);
+  NumberFormat france= NumberFormat.getCurrencyInstance(Locale.FRANCE);
 
-class Result {
-
-    /*
-     * Complete the 'findDay' function below.
-     *
-     * The function is expected to return a STRING.
-     * The function accepts following parameters:
-     *  1. INTEGER month
-     *  2. INTEGER day
-     *  3. INTEGER year
-     */
-
-    public static String findDay(int month, int day, int year) {
-     Calendar cal= Calendar.getInstance();
-     cal.set(year,month-1,day);
-     
-     String s= cal.getDisplayName(Calendar.DAY_OF_WEEK, Calendar.LONG, Locale.ENGLISH).toUpperCase();
-     return s;
+        System.out.println("US: " + us.format(payment));
+        System.out.println("India: " + india.format(payment));
+        System.out.println("China: " + china.format(payment));
+        System.out.println("France: " + france.format(payment));
     }
-
+    static String formatPayment(double s){
+            NumberFormat nf = NumberFormat.getCurrencyInstance();         
+           
+            return nf.format(s);    
+        }
+   
 }
-
