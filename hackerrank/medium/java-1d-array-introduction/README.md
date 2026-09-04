@@ -1,4 +1,4 @@
-# Java Currency Formatter
+# Java 1D Array
 
 ![Difficulty](https://img.shields.io/badge/Difficulty-Medium-yellow)
 
@@ -53,39 +53,14 @@ You are not responsible for printing any output to stdout. Locked code in the ed
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-04T06:56:37.036Z  
+**Submitted:** 2026-09-04T07:01:05.058Z  
 
 ```java
-import java.util.*;
-import java.text.*;
 
-public class Solution {
-    
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        double payment = scanner.nextDouble();
-        scanner.close();
-       
-       
-        // Write your code here.
-        
-  
-  NumberFormat us= NumberFormat.getCurrencyInstance(Locale.US);
-  NumberFormat india= NumberFormat.getCurrencyInstance(new Locale("en","IN"));
-  NumberFormat china= NumberFormat.getCurrencyInstance(Locale.CHINA);
-  NumberFormat france= NumberFormat.getCurrencyInstance(Locale.FRANCE);
 
-        System.out.println("US: " + us.format(payment));
-        System.out.println("India: " + india.format(payment));
-        System.out.println("China: " + china.format(payment));
-        System.out.println("France: " + france.format(payment));
-    }
-    static String formatPayment(double s){
-            NumberFormat nf = NumberFormat.getCurrencyInstance();         
-           
-            return nf.format(s);    
-        }
-   
+int[] a=new int[n];
+for(int i=0;i<n;i++){
+    a[i]=scan.nextInt();
 }
 
 ```
