@@ -1,4 +1,4 @@
-# Java Anagrams
+# Java String Tokens
 
 ![Difficulty](https://img.shields.io/badge/Difficulty-Medium-yellow)
 
@@ -26,33 +26,27 @@ On the first line, print an integer, $n$, denoting the number of tokens in strin
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-06T15:09:26.033Z  
+**Submitted:** 2026-09-06T15:26:04.670Z  
 
 ```java
+import java.io.*;
+import java.util.*;
 
+public class Solution {
 
-    static boolean isAnagram(String x, String y) {
-        int[] a=new int[26];
-        int[] b=new int[26];
-        x= x.toLowerCase();
-        y=y.toLowerCase();
-        boolean m=false;
-        if(x.length()!=y.length()) return false;
-        for(char ch:x.toCharArray()){
-            a[ch-'a']++;
-        }
-         for(char ch:y.toCharArray()){
-            b[ch-'a']++;
-        }
-        for(int i=0;i<a.length;i++){
-            if(a[i]!=b[i])  m=true;
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        String s = scan.nextLine();
+        // Write your code here.
+        String[] a= s.split("[\\s+!,?._'@]+");
+        System.out.println(a.length);
+        for(String i:a){
             
+            System.out.println(i);
         }
-        if(m){
-            return false;
-        }
-        return true;
+        scan.close();
     }
+}
 
 
 ```
