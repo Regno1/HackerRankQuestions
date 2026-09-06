@@ -26,7 +26,7 @@ On the first line, print an integer, $n$, denoting the number of tokens in strin
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-06T15:26:06.969Z  
+**Submitted:** 2026-09-06T15:30:18.795Z  
 
 ```java
 import java.io.*;
@@ -37,9 +37,11 @@ public class Solution {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         String s = scan.nextLine();
+        s=s.replaceAll("\\s+", " ").trim();
         // Write your code here.
-        String[] a= s.split("[\\s+!,?._'@]+");
-        System.out.println(a.length);
+        String[] a= s.split("[\\s!,?._'@]+");
+        if(s.isEmpty()) System.out.print(0);
+        else System.out.println(a.length);
         for(String i:a){
             
             System.out.println(i);
