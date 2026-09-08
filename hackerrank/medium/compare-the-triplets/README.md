@@ -1,4 +1,4 @@
-# Simple Array Sum
+# Compare the Triplets
 
 ![Difficulty](https://img.shields.io/badge/Difficulty-Medium-yellow)
 
@@ -60,103 +60,76 @@ The second line contains <em>3</em> space-separated integers, <em>b[0]</em>, <em
 
 ## Solution
 
-**Language:** C++  
+**Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-08T08:02:16.458Z  
+**Submitted:** 2026-09-08T08:26:53.022Z  
 
-```cpp
-#include <bits/stdc++.h>
+```java
+import java.io.*;
+import java.math.*;
+import java.security.*;
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.function.*;
+import java.util.regex.*;
+import java.util.stream.*;
+import static java.util.stream.Collectors.joining;
+import static java.util.stream.Collectors.toList;
 
-using namespace std;
+class Result {
 
-string ltrim(const string &);
-string rtrim(const string &);
-vector<string> split(const string &);
+    /*
+     * Complete the 'compareTriplets' function below.
+     *
+     * The function is expected to return an INTEGER_ARRAY.
+     * The function accepts following parameters:
+     *  1. INTEGER_ARRAY a
+     *  2. INTEGER_ARRAY b
+     */
 
-/*
- * Complete the 'simpleArraySum' function below.
- *
- * The function is expected to return an INTEGER.
- * The function accepts INTEGER_ARRAY ar as parameter.
- */
-
-int simpleArraySum(vector<int> ar) {
-int sum=0;
-for(int i:ar){
-    sum=sum+i;
-}
-return sum;
-}
-
-int main()
-{
-    ofstream fout(getenv("OUTPUT_PATH"));
-
-    string ar_count_temp;
-    getline(cin, ar_count_temp);
-
-    int ar_count = stoi(ltrim(rtrim(ar_count_temp)));
-
-    string ar_temp_temp;
-    getline(cin, ar_temp_temp);
-
-    vector<string> ar_temp = split(rtrim(ar_temp_temp));
-
-    vector<int> ar(ar_count);
-
-    for (int i = 0; i < ar_count; i++) {
-        int ar_item = stoi(ar_temp[i]);
-
-        ar[i] = ar_item;
+    public static List<Integer> compareTriplets(List<Integer> a, List<Integer> b) {
+     List<Integer> m=new ArrayList<>();
+     m.add(0);
+     m.add(0);
+     for(int i=0;i<a.size();i++){
+        if(a.get(i)>b.get(i)){
+           m.set(0, m.get(0) + 1);
+        }else if(a.get(i)<b.get(i)){
+            
+         m.set(1,m.get(1)+1);        }
+     }
+     return m;
     }
 
-    int result = simpleArraySum(ar);
-
-    fout << result << "\n";
-
-    fout.close();
-
-    return 0;
 }
 
-string ltrim(const string &str) {
-    string s(str);
+public class Solution {
+    public static void main(String[] args) throws IOException {
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
 
-    s.erase(
-        s.begin(),
-        find_if(s.begin(), s.end(), not1(ptr_fun<int, int>(isspace)))
-    );
+        List<Integer> a = Stream.of(bufferedReader.readLine().replaceAll("\\s+$", "").split(" "))
+            .map(Integer::parseInt)
+            .collect(toList());
 
-    return s;
-}
+        List<Integer> b = Stream.of(bufferedReader.readLine().replaceAll("\\s+$", "").split(" "))
+            .map(Integer::parseInt)
+            .collect(toList());
 
-string rtrim(const string &str) {
-    string s(str);
+        List<Integer> result = Result.compareTriplets(a, b);
 
-    s.erase(
-        find_if(s.rbegin(), s.rend(), not1(ptr_fun<int, int>(isspace))).base(),
-        s.end()
-    );
+        bufferedWriter.write(
+            result.stream()
+                .map(Object::toString)
+                .collect(joining(" "))
+            + "\n"
+        );
 
-    return s;
-}
-
-vector<string> split(const string &str) {
-    vector<string> tokens;
-
-    string::size_type start = 0;
-    string::size_type end = 0;
-
-    while ((end = str.find(" ", start)) != string::npos) {
-        tokens.push_back(str.substr(start, end - start));
-
-        start = end + 1;
+        bufferedReader.close();
+        bufferedWriter.close();
     }
-
-    tokens.push_back(str.substr(start));
-
-    return tokens;
 }
 
 ```
