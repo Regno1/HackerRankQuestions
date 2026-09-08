@@ -1,28 +1,10 @@
-import java.util.Scanner;
-import java.util.regex.*;
 
-public class Solution
-{
-	public static void main(String[] args){
-		Scanner in = new Scanner(System.in);
-		int testCases = Integer.parseInt(in.nextLine());
-		
-        while(testCases>0){
-			String pattern = in.nextLine();
-            
-            try{
-                Pattern.compile(pattern);
-                System.out.println("Valid");
-            }catch(Exception e){
-                System.out.println("Invalid");
-            }
-        testCases--;      
-		
-        }
-        
-        in.close();
-	}
+
+//Write your code here
+class MyRegex {
+
+    String num =
+        "([0-9]|[0-9]{2}|[0-1][0-9]{2}|2[0-4][0-9]|25[0-5])";
+
+    String pattern = num + "\\." + num + "\\." + num + "\\." + num;
 }
-
-
-
