@@ -52,9 +52,9 @@ You are given an array of digits called `digits`. Your task is to determine the 
 ## Solution
 
 **Language:** Java  
-**Runtime:** 12 ms (beats 15.73%)  
-**Memory:** 46.9 MB (beats 15.20%)  
-**Submitted:** 2026-09-11T13:57:51.838Z  
+**Runtime:** 11 ms (beats 19.30%)  
+**Memory:** 47.2 MB (beats 7.56%)  
+**Submitted:** 2026-09-12T04:21:24.782Z  
 
 ```java
 class Solution {
@@ -65,7 +65,7 @@ class Solution {
         }
         int count = 0;
         for (int num = 100; num <= 999; num++) {
-            // Must be even
+           
             if (num % 2 != 0) {
                 continue;
             }
@@ -75,7 +75,7 @@ class Solution {
             int b = n % 10;
             n /= 10;
             int c = n % 10;
-            // Check if enough copies of each digit exist
+        
             int[] need = new int[10];
             need[a]++;
             need[b]++;
