@@ -6,7 +6,7 @@ class Solution {
         }
         int count = 0;
         for (int num = 100; num <= 999; num++) {
-            // Must be even
+           
             if (num % 2 != 0) {
                 continue;
             }
@@ -16,7 +16,7 @@ class Solution {
             int b = n % 10;
             n /= 10;
             int c = n % 10;
-            // Check if enough copies of each digit exist
+        
             int[] need = new int[10];
             need[a]++;
             need[b]++;
