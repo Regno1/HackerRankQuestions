@@ -1,28 +1,26 @@
 class Solution {
-    int MOD = 1_000_000_007;
-    int[][] dp = new int[1001][1001];
-
-    public int numberOfSets(int n, int K) {
-
-        for (int i = 0; i <= n; i++) {
-            dp[0][i] = (i < n) ? 1 : 0;
+    private static final int MOD = 1_000_000_007;
+    public int numberOfSets(int n, int k) {
+        int[][] dp = new int[k + 1][n + 1];
+        // 0 segments can always be formed in exactly 1 way.
+        for (int pos = 0; pos <= n; pos++) {
+            dp[0][pos] = 1;
         }
-
-        for (int k = 1; k <= K; k++) {
-
-            for (int i = n - 1; i >= 0; i--) {
-
-                int skip = dp[k][i + 1];
-
-                int take = 0;
-                for (int j = i + 1; j < n; j++) {
-                    take = (int) ((take + dp[k - 1][j]) % MOD);
-                }
-
-                dp[k][i] = (take + skip) % MOD;
+        for (int segments = 1; segments <= k; segments++) {
+            int[] prevRowSum = new int[n + 1];
+            // Sum of dp[segments - 1][pos ... n - 1]
+            for (int pos = n - 1; pos >= 0; pos--) {
+                prevRowSum[pos] =  (int) ((prevRowSum[pos + 1] + dp[segments - 1][pos]) % MOD);
+            }
+            for (int pos = n - 1; pos >= 0; pos--) {
+                // Skip current point.
+                long ways = dp[segments][pos + 1];
+                // Start a segment at pos.
+                // End can be pos + 1 ... n - 1.
+                ways += prevRowSum[pos + 1];
+                dp[segments][pos] = (int) (ways % MOD);
             }
         }
-
-        return dp[K][0];
+        return dp[k][0];
     }
 }
