@@ -1,4 +1,4 @@
-# Maximum Draws
+# Find the Point
 
 ![Difficulty](https://img.shields.io/badge/Difficulty-Medium-yellow)
 
@@ -61,7 +61,7 @@ Case 2 : 2 colors of socks are in the drawer. The first two removed may not matc
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-18T06:22:22.208Z  
+**Submitted:** 2026-09-18T06:20:42.906Z  
 
 ```java
 import java.io.*;
@@ -75,15 +75,24 @@ import java.util.regex.*;
 class Result {
 
     /*
-     * Complete the 'maximumDraws' function below.
+     * Complete the 'findPoint' function below.
      *
-     * The function is expected to return an INTEGER.
-     * The function accepts INTEGER n as parameter.
+     * The function is expected to return an INTEGER_ARRAY.
+     * The function accepts following parameters:
+     *  1. INTEGER px
+     *  2. INTEGER py
+     *  3. INTEGER qx
+     *  4. INTEGER qy
      */
 
-    public static int maximumDraws(int n) {
+    public static List<Integer> findPoint(int px, int py, int qx, int qy) {
     // Write your code here
-return n+1;
+     List<Integer> a=new ArrayList<>();
+     int rx=qx+(qx-px);
+     int ry=qy+(qy-py);
+     a.add(rx);
+     a.add(ry);
+     return a;
     }
 
 }
@@ -93,14 +102,29 @@ public class Solution {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
 
-        int t = Integer.parseInt(bufferedReader.readLine().trim());
+        int n = Integer.parseInt(bufferedReader.readLine().trim());
 
-        for (int tItr = 0; tItr < t; tItr++) {
-            int n = Integer.parseInt(bufferedReader.readLine().trim());
+        for (int nItr = 0; nItr < n; nItr++) {
+            String[] firstMultipleInput = bufferedReader.readLine().replaceAll("\\s+$", "").split(" ");
 
-            int result = Result.maximumDraws(n);
+            int px = Integer.parseInt(firstMultipleInput[0]);
 
-            bufferedWriter.write(String.valueOf(result));
+            int py = Integer.parseInt(firstMultipleInput[1]);
+
+            int qx = Integer.parseInt(firstMultipleInput[2]);
+
+            int qy = Integer.parseInt(firstMultipleInput[3]);
+
+            List<Integer> result = Result.findPoint(px, py, qx, qy);
+
+            for (int i = 0; i < result.size(); i++) {
+                bufferedWriter.write(String.valueOf(result.get(i)));
+
+                if (i != result.size() - 1) {
+                    bufferedWriter.write(" ");
+                }
+            }
+
             bufferedWriter.newLine();
         }
 
