@@ -1,10 +1,31 @@
+import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
+public class DuplicateWords {
 
-//Write your code here
-class MyRegex {
+    public static void main(String[] args) {
 
-    String num =
-        "([0-9]|[0-9]{2}|[0-1][0-9]{2}|2[0-4][0-9]|25[0-5])";
+        String regex ="\\b(\\w+)(?:\\W+\\1\\b)+" ;
+        Pattern p = Pattern.compile(regex, Pattern.CASE_INSENSITIVE);
 
-    String pattern = num + "\\." + num + "\\." + num + "\\." + num;
+        Scanner in = new Scanner(System.in);
+        int numSentences = Integer.parseInt(in.nextLine());
+        
+        while (numSentences-- > 0) {
+            String input = in.nextLine();
+            
+            Matcher m = p.matcher(input);
+            
+            // Check for subsequences of input that match the compiled pattern
+            while (m.find()) {
+                input = input.replaceAll(/* The regex to replace */m.group(),m.group(1) /* The replacement. */);
+            }
+            
+            // Prints the modified sentence.
+            System.out.println(input);
+        }
+        
+        in.close();
+    }
 }
