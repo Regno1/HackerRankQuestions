@@ -25,7 +25,7 @@ Explanation: Numbers in decreasing order from 5 are 5 4 3 2 1 0.
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-23T15:46:42.328Z  
+**Submitted:** 2026-09-23T15:46:47.926Z  
 
 ```java
 import java.util.Scanner;
