@@ -56,7 +56,7 @@ Input:**
 **Language:** Java  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-09-30T14:26:29.676Z  
+**Submitted:** 2026-09-30T14:26:37.386Z  
 
 ```java
 class Child extends Parent {
